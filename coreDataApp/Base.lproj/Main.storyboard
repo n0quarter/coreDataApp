@@ -35,22 +35,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="254" translatesAutoresizingMaskIntoConstraints="NO" id="Uxm-6E-Qae" userLabel="noteTextLabel">
-                                            <rect key="frame" x="20" y="10" width="254" height="60"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="Uxm-6E-Qae" userLabel="noteTextLabel">
+                                            <rect key="frame" x="20" y="10" width="245" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-gC-ftS" userLabel="idLabel">
-                                            <rect key="frame" x="256" y="6" width="44" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-gC-ftS" userLabel="idLabel">
+                                            <rect key="frame" x="266" y="31" width="34" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Uxm-6E-Qae" firstAttribute="top" secondItem="d3P-M7-ByW" secondAttribute="top" constant="10" id="AJA-cA-7Gt"/>
+                                        <constraint firstItem="Uxm-6E-Qae" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leading" constant="20" id="S1K-Xw-hB1"/>
+                                        <constraint firstAttribute="trailing" secondItem="JMH-gC-ftS" secondAttribute="trailing" constant="20" id="WeG-6Z-82R"/>
+                                        <constraint firstAttribute="centerY" secondItem="JMH-gC-ftS" secondAttribute="centerY" id="eWj-YO-Ok0"/>
+                                        <constraint firstAttribute="bottom" secondItem="Uxm-6E-Qae" secondAttribute="bottom" constant="10" id="kga-yo-Dje"/>
+                                        <constraint firstItem="JMH-gC-ftS" firstAttribute="leading" secondItem="Uxm-6E-Qae" secondAttribute="trailing" constant="1" id="pbg-IY-due"/>
+                                        <constraint firstAttribute="trailing" secondItem="Uxm-6E-Qae" secondAttribute="trailing" constant="55" id="pfC-Cl-vul"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
