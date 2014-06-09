@@ -31,7 +31,6 @@ static CoreDataManager *s_sharedInstance = nil;
 }
 
 
-
 # pragma mark - Methods
 
 - (NSArray *)loadAllNotes
@@ -45,23 +44,12 @@ static CoreDataManager *s_sharedInstance = nil;
   
   
   NSArray *allNotes = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-
-  // for debug
-//  for(NSManagedObject *note in allNotes){
-//    if ([[note valueForKey:@"noteId"] isKindOfClass:[NSNumber class]] && [[note valueForKey:@"text"] isKindOfClass:[NSString class]]) {
-//      NSLog(@"[read] id = %@, text = %@", [note valueForKey:@"noteId"], [note valueForKey:@"text"]);
-//    }
-//  }
   
-  NSLog(@"-------------------- read: count = %d", [allNotes count]);
   return allNotes;
 }
 
 - (void)populateCoreDataWithArray:(NSArray *)notes
 {
-  NSLog(@"-------------------- populateCoreDataWithDictionary. write: count = %d", [notes count]);
-
-//  NSLog(@"populateCoreDataWithDictionary = %@", notes);
   
   [notes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     
@@ -70,8 +58,6 @@ static CoreDataManager *s_sharedInstance = nil;
     
     NSManagedObject *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
                                                           inManagedObjectContext:self.managedObjectContext];
-    
-//    NSLog(@"[write] id = %@, text = %@", [dict numberForKey:@"id"], [dict stringForKey:@"text"]);
     
     [note setValue:[dict numberForKey:@"id"] forKey:@"noteId"];
     [note setValue:[dict stringForKey:@"text"] forKey:@"text"];
@@ -153,7 +139,6 @@ static CoreDataManager *s_sharedInstance = nil;
 
 #pragma mark - Application's Documents directory
 
-// Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
   return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];

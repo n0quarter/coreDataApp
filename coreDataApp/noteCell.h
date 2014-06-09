@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface noteCell : UITableViewCell
+@interface noteCell : UITableViewCell <UIWebViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UILabel* noteTextLabel;
 @property (nonatomic, weak) IBOutlet UILabel* idLabel;
+@property (nonatomic, weak) IBOutlet UIWebView* webView;
 
 @end

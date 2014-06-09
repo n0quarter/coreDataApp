@@ -35,35 +35,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="Uxm-6E-Qae" userLabel="noteTextLabel">
-                                            <rect key="frame" x="20" y="10" width="245" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-gC-ftS" userLabel="idLabel">
-                                            <rect key="frame" x="266" y="31" width="34" height="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="id" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-gC-ftS" userLabel="idLabel">
+                                            <rect key="frame" x="121" y="31" width="179" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <webView contentMode="scaleToFill" mediaPlaybackAllowsAirPlay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI1-ya-WCe">
+                                            <rect key="frame" x="20" y="10" width="246" height="59"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                        </webView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Uxm-6E-Qae" firstAttribute="top" secondItem="d3P-M7-ByW" secondAttribute="top" constant="10" id="AJA-cA-7Gt"/>
-                                        <constraint firstItem="Uxm-6E-Qae" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leading" constant="20" id="S1K-Xw-hB1"/>
+                                        <constraint firstItem="AI1-ya-WCe" firstAttribute="top" secondItem="d3P-M7-ByW" secondAttribute="top" constant="10" id="7wP-Ve-X4k"/>
+                                        <constraint firstItem="AI1-ya-WCe" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leading" constant="20" id="LbT-7O-edk"/>
                                         <constraint firstAttribute="trailing" secondItem="JMH-gC-ftS" secondAttribute="trailing" constant="20" id="WeG-6Z-82R"/>
+                                        <constraint firstAttribute="trailing" secondItem="AI1-ya-WCe" secondAttribute="trailing" constant="54" id="aFg-5x-PxV"/>
                                         <constraint firstAttribute="centerY" secondItem="JMH-gC-ftS" secondAttribute="centerY" id="eWj-YO-Ok0"/>
-                                        <constraint firstAttribute="bottom" secondItem="Uxm-6E-Qae" secondAttribute="bottom" constant="10" id="kga-yo-Dje"/>
-                                        <constraint firstItem="JMH-gC-ftS" firstAttribute="leading" secondItem="Uxm-6E-Qae" secondAttribute="trailing" constant="1" id="pbg-IY-due"/>
-                                        <constraint firstAttribute="trailing" secondItem="Uxm-6E-Qae" secondAttribute="trailing" constant="55" id="pfC-Cl-vul"/>
+                                        <constraint firstAttribute="bottom" secondItem="AI1-ya-WCe" secondAttribute="bottom" constant="10" id="gfx-dE-hvH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="idLabel" destination="JMH-gC-ftS" id="T46-Le-Kl8"/>
-                                    <outlet property="noteTextLabel" destination="Uxm-6E-Qae" id="yee-fr-hB7"/>
+                                    <outlet property="webView" destination="AI1-ya-WCe" id="zHv-JZ-OD2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

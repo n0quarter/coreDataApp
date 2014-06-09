@@ -135,13 +135,9 @@
 				02E9B65E1945F62600D163C9 /* AppDelegate.h */,
 				02E9B65F1945F62600D163C9 /* AppDelegate.m */,
 				02E9B6611945F62600D163C9 /* Main.storyboard */,
-				02E9B6BE1946045800D163C9 /* Categories */,
-				02E9B6A71945FDB400D163C9 /* Persistence */,
-				02E9B68B1945F92700D163C9 /* Controller */,
-				02E9B68D1945F92C00D163C9 /* View */,
-				02E9B68C1945F92A00D163C9 /* Model */,
-				02E9B66D1945F62600D163C9 /* Images.xcassets */,
 				02E9B6641945F62600D163C9 /* coreDataApp.xcdatamodeld */,
+				02E9B6DD194616C600D163C9 /* Classes */,
+				02E9B66D1945F62600D163C9 /* Images.xcassets */,
 				02E9B6561945F62600D163C9 /* Supporting Files */,
 			);
 			path = coreDataApp;
@@ -219,6 +215,18 @@
 				02E9B6C01946046600D163C9 /* NSDictionary+parseValues.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		02E9B6DD194616C600D163C9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				02E9B68B1945F92700D163C9 /* Controller */,
+				02E9B68D1945F92C00D163C9 /* View */,
+				02E9B68C1945F92A00D163C9 /* Model */,
+				02E9B6BE1946045800D163C9 /* Categories */,
+				02E9B6A71945FDB400D163C9 /* Persistence */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

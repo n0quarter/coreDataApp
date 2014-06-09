@@ -12,14 +12,18 @@
 
 - (void)awakeFromNib
 {
-    // Initialization code
+  self.webView.scrollView.scrollEnabled = NO;
+  self.webView.scrollView.bounces = NO;
+
+  self.webView.delegate = self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+  if (inType == UIWebViewNavigationTypeLinkClicked) {
+    [[UIApplication sharedApplication] openURL:[inRequest URL]];
+    return NO;
+  }
+  return YES;
 }
 
 @end

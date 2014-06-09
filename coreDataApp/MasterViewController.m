@@ -46,8 +46,8 @@
 {
   Note *note = self.notes[indexPath.row];
   NSString *text = [note valueForKey:@"text"];
-  CGFloat height = [self findHeightForText:text havingWidth:250 andFont:[UIFont systemFontOfSize:16.0]];
-  return height + 20;
+  CGFloat height = [self findHeightForText:text havingWidth:250 andFont:[UIFont systemFontOfSize:17.0]];
+  return height + 30;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,8 +58,11 @@
   
   NSLog(@"[%@], '%@'", [note valueForKey:@"text"], [note valueForKey:@"noteId"]);
   
-  cell.noteTextLabel.text = [[note valueForKey:@"text"] description];
+//  cell.noteTextLabel.text = [[note valueForKey:@"text"] description];
   cell.idLabel.text = [[note valueForKey:@"noteId"] description];
+//  cell.textView.text = cell.noteTextLabel.text;
+  [cell.webView loadHTMLString:[[note valueForKey:@"text"] description] baseURL:nil];
+
   
   return cell;
 }
