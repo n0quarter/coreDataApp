@@ -27,6 +27,7 @@
 		02E9B6A61945FDA500D163C9 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6A51945FDA500D163C9 /* CoreDataManager.m */; };
 		02E9B6C11946046600D163C9 /* NSDictionary+parseValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6C01946046600D163C9 /* NSDictionary+parseValues.m */; };
 		02E9B6C41946068700D163C9 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6C31946068700D163C9 /* Note.m */; };
+		02E9B6DB19460C4F00D163C9 /* noteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6D919460C4F00D163C9 /* noteCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		02E9B6C01946046600D163C9 /* NSDictionary+parseValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+parseValues.m"; sourceTree = "<group>"; };
 		02E9B6C21946068700D163C9 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		02E9B6C31946068700D163C9 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		02E9B6D819460C4F00D163C9 /* noteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noteCell.h; sourceTree = "<group>"; };
+		02E9B6D919460C4F00D163C9 /* noteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noteCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 		02E9B68D1945F92C00D163C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02E9B6D819460C4F00D163C9 /* noteCell.h */,
+				02E9B6D919460C4F00D163C9 /* noteCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				02E9B6691945F62600D163C9 /* MasterViewController.m in Sources */,
 				02E9B6661945F62600D163C9 /* coreDataApp.xcdatamodeld in Sources */,
 				02E9B6A61945FDA500D163C9 /* CoreDataManager.m in Sources */,
+				02E9B6DB19460C4F00D163C9 /* noteCell.m in Sources */,
 				02E9B6C11946046600D163C9 /* NSDictionary+parseValues.m in Sources */,
 				02E9B6601945F62600D163C9 /* AppDelegate.m in Sources */,
 				02E9B6C41946068700D163C9 /* Note.m in Sources */,

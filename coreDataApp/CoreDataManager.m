@@ -37,6 +37,13 @@ static CoreDataManager *s_sharedInstance = nil;
 - (NSArray *)loadAllNotes
 {
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Note"];
+  
+  NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]
+                                      initWithKey:@"noteId" ascending:YES];
+  NSArray* sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+  [fetchRequest setSortDescriptors:sortDescriptors];
+  
+  
   NSArray *allNotes = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 
   // for debug

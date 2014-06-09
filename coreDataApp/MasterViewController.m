@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "CoreDataManager.h"
 #import "Note.h"
+#import "noteCell.h"
 
 @interface MasterViewController ()
 
@@ -43,20 +44,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-  [self configureCell:cell atIndex:indexPath.row];
+  noteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noteCell"];
+
+  if (indexPath.row < self.notes.count) {
+    Note *note = self.notes[indexPath.row];
+    
+//    NSLog(@"[%@], '%@'", [note valueForKey:@"text"], [note valueForKey:@"id"]);
+    
+    cell.noteTextLabel.text = [[note valueForKey:@"text"] description];
+    cell.idLabel.text = [[note valueForKey:@"noteId"] description];
+  }
   return cell;
 }
 
 #pragma mark - Helper
-
-- (void)configureCell:(UITableViewCell *)cell atIndex:(int)index
-{
-  if (index < self.notes.count) {
-    Note *note = self.notes[index];
-    cell.textLabel.text = [[note valueForKey:@"text"] description];
-  }
-}
 
 
 @end
