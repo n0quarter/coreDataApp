@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
 #import "MasterViewController.h"
+#import "CoreDataManager.h"
 
 @implementation AppDelegate
 
@@ -18,15 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Override point for customization after application launch.
-  UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-  MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-  controller.managedObjectContext = self.managedObjectContext;
-  
-  
-  [self dropAllData];
-  
-  
+  [CoreDataManager sharedInstance].managedObjectContext = self.managedObjectContext;
   
   return YES;
 }
@@ -40,7 +32,7 @@
   for(NSManagedObject *user in allUsers){
     [self.managedObjectContext deleteObject:user];
   }
-  [self saveContext];
+  [[CoreDataManager sharedInstance] saveContext];
 }
 
 
@@ -49,22 +41,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Saves changes in the application's managed object context before the application terminates.
-  [self saveContext];
+  [[CoreDataManager sharedInstance] saveContext];
 }
 
-- (void)saveContext
-{
-  NSError *error = nil;
-  NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-  if (managedObjectContext != nil) {
-    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-      // Replace this implementation with code to handle the error appropriately.
-      // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-      abort();
-    }
-  }
-}
 
 #pragma mark - Core Data stack
 
