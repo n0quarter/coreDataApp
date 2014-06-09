@@ -22,5 +22,6 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 - (void)populateCoreDataWithArray:(NSArray *)notes;
+- (NSArray *)loadAllNotes;
 
 @end

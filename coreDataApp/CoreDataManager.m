@@ -7,6 +7,8 @@
 //
 
 #import "CoreDataManager.h"
+#import "NSDictionary+parseValues.h"
+#import "Note.h"
 
 @implementation CoreDataManager
 
@@ -28,39 +30,48 @@ static CoreDataManager *s_sharedInstance = nil;
   return s_sharedInstance;
 }
 
-- (id)init {
-  self = [super init];
-  if (self) {
-    NSLog(@"CoreDataManager init. drop table");
-//    [self dropAllData];
-  }
-  return self;
-}
-
 
 
 # pragma mark - Methods
 
+- (NSArray *)loadAllNotes
+{
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Note"];
+  NSArray *allNotes = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+
+  // for debug
+//  for(NSManagedObject *note in allNotes){
+//    if ([[note valueForKey:@"noteId"] isKindOfClass:[NSNumber class]] && [[note valueForKey:@"text"] isKindOfClass:[NSString class]]) {
+//      NSLog(@"[read] id = %@, text = %@", [note valueForKey:@"noteId"], [note valueForKey:@"text"]);
+//    }
+//  }
+  
+  NSLog(@"-------------------- read: count = %d", [allNotes count]);
+  return allNotes;
+}
+
 - (void)populateCoreDataWithArray:(NSArray *)notes
 {
-  NSLog(@"populateCoreDataWithDictionary = %@", notes);
+  NSLog(@"-------------------- populateCoreDataWithDictionary. write: count = %d", [notes count]);
+
+//  NSLog(@"populateCoreDataWithDictionary = %@", notes);
   
-  NSManagedObject *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
-                                                        inManagedObjectContext:self.managedObjectContext];
-  // just test, to be sure core data works
-  [note setValue:@11 forKey:@"id"];
-  [note setValue:@"text123" forKey:@"text"];
+  [notes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    
+    NSDictionary *dict;
+    [obj isKindOfClass:[NSDictionary class]] ? dict = (NSDictionary *)obj : nil;
+    
+    NSManagedObject *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+                                                          inManagedObjectContext:self.managedObjectContext];
+    
+//    NSLog(@"[write] id = %@, text = %@", [dict numberForKey:@"id"], [dict stringForKey:@"text"]);
+    
+    [note setValue:[dict numberForKey:@"id"] forKey:@"noteId"];
+    [note setValue:[dict stringForKey:@"text"] forKey:@"text"];
+  }];
   
   [self saveContext];
   
-  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Note"];
-  NSArray *allUsers = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-  
-  for(NSManagedObject *user in allUsers){
-    NSString *note_id = [user valueForKey:@"id"];
-    NSString *text    = [user valueForKey:@"text"];
-    NSLog(@"[%@] = '%@'", note_id, text);
-  }
 }
 
 - (void)dropAllData
@@ -80,8 +91,6 @@ static CoreDataManager *s_sharedInstance = nil;
   NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
   if (managedObjectContext != nil) {
     if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-      // Replace this implementation with code to handle the error appropriately.
-      // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
       NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
       abort();
     }
@@ -89,10 +98,10 @@ static CoreDataManager *s_sharedInstance = nil;
 }
 
 
-#pragma mark - Core Data stack
 
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+
+#pragma mark - Core Data stuff
+
 - (NSManagedObjectContext *)managedObjectContext
 {
   if (_managedObjectContext != nil) {
@@ -107,8 +116,6 @@ static CoreDataManager *s_sharedInstance = nil;
   return _managedObjectContext;
 }
 
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
 {
   if (_managedObjectModel != nil) {
@@ -119,8 +126,6 @@ static CoreDataManager *s_sharedInstance = nil;
   return _managedObjectModel;
 }
 
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
   if (_persistentStoreCoordinator != nil) {

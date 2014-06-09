@@ -25,6 +25,8 @@
 		02E9B6801945F62600D163C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02E9B67E1945F62600D163C9 /* InfoPlist.strings */; };
 		02E9B6821945F62600D163C9 /* coreDataAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6811945F62600D163C9 /* coreDataAppTests.m */; };
 		02E9B6A61945FDA500D163C9 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6A51945FDA500D163C9 /* CoreDataManager.m */; };
+		02E9B6C11946046600D163C9 /* NSDictionary+parseValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6C01946046600D163C9 /* NSDictionary+parseValues.m */; };
+		02E9B6C41946068700D163C9 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E9B6C31946068700D163C9 /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		02E9B6811945F62600D163C9 /* coreDataAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = coreDataAppTests.m; sourceTree = "<group>"; };
 		02E9B6A41945FDA500D163C9 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		02E9B6A51945FDA500D163C9 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		02E9B6BF1946046600D163C9 /* NSDictionary+parseValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+parseValues.h"; sourceTree = "<group>"; };
+		02E9B6C01946046600D163C9 /* NSDictionary+parseValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+parseValues.m"; sourceTree = "<group>"; };
+		02E9B6C21946068700D163C9 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		02E9B6C31946068700D163C9 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				02E9B65E1945F62600D163C9 /* AppDelegate.h */,
 				02E9B65F1945F62600D163C9 /* AppDelegate.m */,
 				02E9B6611945F62600D163C9 /* Main.storyboard */,
+				02E9B6BE1946045800D163C9 /* Categories */,
 				02E9B6A71945FDB400D163C9 /* Persistence */,
 				02E9B68B1945F92700D163C9 /* Controller */,
 				02E9B68D1945F92C00D163C9 /* View */,
@@ -178,6 +185,8 @@
 		02E9B68C1945F92A00D163C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				02E9B6C21946068700D163C9 /* Note.h */,
+				02E9B6C31946068700D163C9 /* Note.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,6 +205,15 @@
 				02E9B6A51945FDA500D163C9 /* CoreDataManager.m */,
 			);
 			name = Persistence;
+			sourceTree = "<group>";
+		};
+		02E9B6BE1946045800D163C9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				02E9B6BF1946046600D163C9 /* NSDictionary+parseValues.h */,
+				02E9B6C01946046600D163C9 /* NSDictionary+parseValues.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +316,9 @@
 				02E9B6691945F62600D163C9 /* MasterViewController.m in Sources */,
 				02E9B6661945F62600D163C9 /* coreDataApp.xcdatamodeld in Sources */,
 				02E9B6A61945FDA500D163C9 /* CoreDataManager.m in Sources */,
+				02E9B6C11946046600D163C9 /* NSDictionary+parseValues.m in Sources */,
 				02E9B6601945F62600D163C9 /* AppDelegate.m in Sources */,
+				02E9B6C41946068700D163C9 /* Note.m in Sources */,
 				02E9B65C1945F62600D163C9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
